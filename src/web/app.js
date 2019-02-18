@@ -1,5 +1,5 @@
-import moimoi, {render, Component} from './moimoi.js';
+// import {render, Component} from './moimoi.js';
 
 
 
-moimoi.render(<div>Hello World!</div>, document.getElementById('app'));
+// render(<div>Hello World!</div>, document.getElementById('app'));
