@@ -19,7 +19,7 @@ const miner = new Miner(bc, tp, wallet, p2pServer);
 
 app.use(bodyParser.json());
 
-console.log(`Making Coffee...`)
+console.log(`... Now Making Coffee...`)
 
 // Shows Current chain
 app.get('/blocks', (req, res) => {

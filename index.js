@@ -7,14 +7,8 @@ const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
 const Menu = electron.Menu;
 
-// Initialize the development socket server
-if (process.env.NODE_ENV === 'DEVELOPMENT') {
-  console.log('Initializing socket server...');
-  // require('./src/app');
-}
-
 // Set the app global name
-console.log('Initializing application "' + app.getName() + '"...');
+console.log('... Initializing application "' + app.getName() + '"...');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -36,7 +30,7 @@ app.on('window-all-closed', function () {
 app.on('ready', function () {
 
   // Create the browser window.
-  var win = new BrowserWindow(require('./src/config/config').window);
+  var win = new BrowserWindow(require('./src/config/default').window);
   
   var menu = Menu.buildFromTemplate(require('./src/config/menu')(app));
   Menu.setApplicationMenu(menu);
