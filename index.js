@@ -61,6 +61,8 @@ app.on('ready', function () {
 
   });
 
+  //starts Kumo
+  require('./src/lib/kumo');
   //Connects to Node//Blockchain
   require('./src/app');
 });
