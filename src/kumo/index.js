@@ -1,7 +1,3 @@
-const THREE = require('three');
+const initCanvas = require('./core/index');
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById("app").appendChild(renderer.domElement);
+initCanvas('app','Kumo','2d','inherit','inherit');
