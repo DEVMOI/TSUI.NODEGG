@@ -23,46 +23,46 @@ module.exports = function (app) {
       label: 'Window',
       role: 'window',
       submenu: [
-        {
-          label: 'New',
-          accelerator: 'CmdOrCtrl+N',
-          click: function () {
+        // {
+        //   label: 'New',
+        //   accelerator: 'CmdOrCtrl+N',
+        //   click: function () {
 
-            // Create the browser window.
-            var win = new BrowserWindow(require('./default').window);
+        //     // Create the browser window.
+        //     var win = new BrowserWindow(require('./default').window);
 
-            // Open the DevTools.
-            if (process.env.NODE_ENV === 'DEVELOPMENT') {
-              win.webContents.openDevTools({
-                detach: true
-              });
-            }
+        //     // Open the DevTools.
+        //     if (process.env.NODE_ENV === 'DEVELOPMENT') {
+        //       win.webContents.openDevTools({
+        //         detach: true
+        //       });
+        //     }
 
-            // Emitted when the window is closed.
-            win.on('closed', function () {
+        //     // Emitted when the window is closed.
+        //     win.on('closed', function () {
 
-              // Dereference the window object, usually you would store windows
-              // in an array if your app supports multi windows, this is the time
-              // when you should delete the corresponding element.
-              //if (win && windows.indexOf(win) >= 0) {
-              //  windows.splice(windows.indexOf(win), 1);
-              //  win = null;
-              //}
+        //       // Dereference the window object, usually you would store windows
+        //       // in an array if your app supports multi windows, this is the time
+        //       // when you should delete the corresponding element.
+        //       //if (win && windows.indexOf(win) >= 0) {
+        //       //  windows.splice(windows.indexOf(win), 1);
+        //       //  win = null;
+        //       //}
 
-            });
+        //     });
 
-            var menu = Menu.buildFromTemplate(require('./menu')(app));
-            Menu.setApplicationMenu(menu);
+        //     var menu = Menu.buildFromTemplate(require('./menu')(app));
+        //     Menu.setApplicationMenu(menu);
 
-            win.setMenu(menu);
+        //     win.setMenu(menu);
 
-            // and load the index.html of the app.
-            win.loadURL('file://' + path.join(__dirname, '../client/index.html'));
-            //windows.push(win);
+        //     // and load the index.html of the app.
+        //     win.loadURL('file://' + path.join(__dirname, '../client/index.html'));
+        //     //windows.push(win);
 
 
-          }
-        },
+        //   }
+        // },
         {
           label: 'Minimize',
           accelerator: 'CmdOrCtrl+M',

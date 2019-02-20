@@ -8,8 +8,13 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'splash',
+      component: () => import( /* webpackChunkName: "about" */ './views/Splash.vue')
+    },
+    {
+      path: '/',
       name: 'home',
-      component: Home
+      component: () => import( /* webpackChunkName: "about" */ './views/Home.vue')
     },
     {
       path: '/about',
