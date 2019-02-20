@@ -2,7 +2,7 @@ const Websocket = require("ws");
 
 const P2P_PORT = process.env.P2P_PORT || 8042;
 //  || 5000 + Math.floor(Math.random() * 101);
-const peers = process.env.PEERS ? process.env.PEERS.split(",") : [];
+const peers = process.env.PEERS ? process.env.PEERS.split(",") : [/*PLACE HOST NODE HERE*/];
 const MESSAGE_TYPES = {
     chain: 'CHAIN',
     transaction: 'TRANSACTION',
