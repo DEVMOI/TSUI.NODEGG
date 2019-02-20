@@ -17,15 +17,26 @@ let win
 protocol.registerStandardSchemes(['app'], { secure: true })
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  // win = new BrowserWindow({ width: 800, height: 600 })
+    // Create the browser window.
+    var win = new BrowserWindow(require('./config/default').window);
+
+    var menu = Menu.buildFromTemplate(require('./config/menu')(app));
+    Menu.setApplicationMenu(menu);
+  
+    win.setMenu(menu);
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-    if (!process.env.IS_TEST) win.webContents.openDevTools()
+    
+    if (!process.env.IS_TEST) win.webContents.openDevTools({
+      detach: true
+    })
   } else {
     createProtocol('app')
     // Load the index.html when not in development
+        
     win.loadURL('app://./index.html')
   }
 
@@ -55,14 +66,7 @@ app.on('activate', () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
-    // Create the browser window.
-    var win = new BrowserWindow(require('./src/config/default').window);
-  
-    var menu = Menu.buildFromTemplate(require('./src/config/menu')(app));
-    Menu.setApplicationMenu(menu);
-  
-    win.setMenu(menu);
-    
+
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
     try {
